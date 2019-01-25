@@ -26,6 +26,13 @@ class Graph {
      */
     removeNode (node) {
         this.adjacencyList.delete(node);
+
+        let iterator = this.adjacencyList.keys();
+        let key = iterator.next();
+        while (!key.done) {
+            this.adjacencyList.get(key.value).delete(node);
+            key = iterator.next();
+        }
     }
 
     /**
@@ -196,5 +203,6 @@ graph.addEdge('E', 'C');
 graph.addEdge('C', 'F');
 
 graph.print();
-graph.bft('A');
-graph.dft('A');
+
+graph.removeNode('A');
+graph.print();
