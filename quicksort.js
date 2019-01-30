@@ -9,13 +9,13 @@
 
 // Quick Sort is at best O(n*log(n)) and at wost O(n^2)
 
-const swap = function (array, i, j) {
+function swap (array, i, j) {
     const t = array[i];
     array[i] = array[j];
     array[j] = t;
 }
 
-const partition = function (array, head, tail) {
+function partition (array, head, tail) {
     // The last element in the list is chosen as the pivot element.
     // This is largely arbitrary since we make no assumptions about
     // the current ordering of elements.
@@ -40,7 +40,7 @@ const partition = function (array, head, tail) {
     return i;
 }
 
-quicksort = function (array, head, tail) {
+function quicksort (array, head, tail) {
     // Base case. An empty array or an array of length 1 is always ordered.
     // Skip doing any work.
     if (array.length <= 1) {
