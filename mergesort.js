@@ -66,6 +66,23 @@ function mergesort (array, indexLeft, indexRight) {
     return array;
 }
 
-// Test mergesort algorithm.
-const test = [6, 10, 50, 30, 5, 2, 1, 3];
-console.log(mergesort(test));
+// Typical case
+const average = [6, 10, 50, 30, 5, 2, 1, 3];
+console.log(`Input:  [${average}]\nResult: [${mergesort(average)}]`);
+
+// Base case
+const empty = [];
+console.log(`Input:  [${empty}]\nResult: [${mergesort(empty)}]`);
+
+// Trivial
+const constant = [1, 1, 1, 1, 1, 1];
+console.log(`Input:  [${constant}]\nResult: [${mergesort(constant)}]`);
+
+// Already sorted
+const sorted = [1, 3, 5, 7, 9, 11, 13, 15];
+console.log(`Input:  [${sorted}]\nResult: [${mergesort(sorted)}]`);
+
+// Reverse sorted
+const reverse = [15, 13, 11, 9, 7, 5, 3, 1];
+console.log(`Input:  [${reverse}]\nResult: [${mergesort(reverse)}]`);
+

@@ -47,8 +47,13 @@ function quicksort (array, head, tail) {
         return array;
     }
 
-    head = head || 0;
-    tail = tail || array.length - 1;
+    // Be careful here as the number zero is falsy in javascript. Avoid boolean operators.
+    if (head === undefined) {
+        head = 0;
+    }
+    if (tail === undefined) {
+        tail = array.length - 1;
+    }
 
     // This is the termination condition since this is a recursive method. If ever
     // the head >= to tail, we've gone as far as we can.
@@ -67,6 +72,23 @@ function quicksort (array, head, tail) {
     return array;
 }
 
-// Test quicksort method.
-const test = [6, 10, 50, 30, 5, 2, 1, 3];
-console.log(quicksort(test));
+// Typical case
+const average = [6, 10, 50, 30, 5, 2, 1, 3];
+console.log(`Input:  [${average}]\nResult: [${quicksort(average)}]`);
+
+// Base case
+const empty = [];
+console.log(`Input:  [${empty}]\nResult: [${quicksort(empty)}]`);
+
+// Trivial
+const constant = [1, 1, 1, 1, 1, 1];
+console.log(`Input:  [${constant}]\nResult: [${quicksort(constant)}]`);
+
+// Already sorted
+const sorted = [1, 3, 5, 7, 9, 11, 13, 15];
+console.log(`Input:  [${sorted}]\nResult: [${quicksort(sorted)}]`);
+
+// Reverse sorted
+const reverse = [15, 13, 11, 9, 7, 5, 3, 1];
+console.log(`Input:  [${reverse}]\nResult: [${quicksort(reverse)}]`);
+
