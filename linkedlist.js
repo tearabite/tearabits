@@ -37,6 +37,32 @@ class LinkedList {
         }
     }
 
+    insert (value, index) {
+        const node = new Node(value);
+
+        let prev = this.head;
+        for (let i = 0; i < index - 1; i++) {
+            if (prev.next == null) {
+                return;
+            }
+            prev = prev.next;
+        }
+        node.next = prev.next;
+        prev.next = node;
+        node.prev = prev;
+    }
+
+    get (index) {
+        let prev = this.head;
+        for (let i = 0; i < index; i++) {
+            if (prev.next == null) {
+                return;
+            }
+            prev = prev.next;
+        }
+        return prev;
+    }
+
     print () {
         let string = 'HEAD';
         let node = this.head;
@@ -75,6 +101,7 @@ class LinkedList {
 
 let list = new LinkedList();
 [...Array(46).keys()].forEach(n => list.append(n + 1));
+list.insert('Inserted!', 4);
 list.print();
 
 console.log(list.length);
