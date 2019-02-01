@@ -52,3 +52,6 @@ tests.forEach(test => {
     const actual = isPalindrome_stack(test.string);
     console.log( { input: test.string, expected: test.isPalindrome, actual: isPalindrome_recursive(test.string), pass: test.isPalindrome === actual ? 'PASS' : 'FAIL'});
 });
+
+console.log(`Recursive method: ${tests.every(test => isPalindrome_recursive(test.string) === test.isPalindrome) ? 'PASS' : 'FAIL'}`);
+console.log(`Stack method: ${tests.every(test => isPalindrome_stack(test.string) === test.isPalindrome) ? 'PASS' : 'FAIL'}`);

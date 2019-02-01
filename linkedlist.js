@@ -63,6 +63,28 @@ class LinkedList {
         return prev;
     }
 
+    reverse () {
+        const isTail = (node) => node.next == null;
+
+        let current = this.head;
+        let previous = null;
+        let forward = null;
+        while (!isTail(current)) {
+            forward = current.next;
+
+            current.prev = current.next;
+            current.next = previous;
+
+            previous = current;
+
+            current = forward;
+        }
+
+        this.head = current;
+        this.head.next = previous;
+        this.head.prev = null;
+    }
+
     print () {
         let string = 'HEAD';
         let node = this.head;
@@ -100,9 +122,17 @@ class LinkedList {
 }
 
 let list = new LinkedList();
-[...Array(46).keys()].forEach(n => list.append(n + 1));
+console.log('Instantiate Linked List:');
+[...Array(10).keys()].forEach(n => list.append(n + 1));
+list.print();
+
+console.log('\nInsert element at index 4:');
 list.insert('Inserted!', 4);
 list.print();
 
-console.log(list.length);
-console.log(list.middle.toString());
+console.log('\nReverse the list:');
+list.reverse();
+list.print();
+
+console.log(`\nLength: ${list.length}`);
+console.log(`\nMiddle: ${list.middle.toString()}`);
