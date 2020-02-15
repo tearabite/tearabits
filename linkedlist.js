@@ -6,7 +6,7 @@ class Node {
     }
 
     toString () {
-        return `${this.prev && this.prev.value} <- [${this.value}] -> ${this.next && this.next.value}`;
+        return `${this.prev && this.prev.value} -> [${this.value}] -> ${this.next && this.next.value}`;
     }
 }
 

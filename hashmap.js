@@ -36,7 +36,7 @@ module.exports.HashMap = HashMap;
 // Test Simple HashMap class
 let hashMap = new HashMap();
 
-// Setting asn getting values is O(1)
+// Setting and getting values is O(1)
 hashMap.set('x', 1);
 console.log(hashMap.get('x'));
 
@@ -49,7 +49,7 @@ console.log(hashMap.get('123'));
 console.log(hashMap.get('dne'));
 
 // Using an array as the backing store requires a lot of space.
-// You want a hashing function which produces a large range ov values
+// You want a hashing function which produces a large range of values
 // to prevent collisions, but when you use an array as the backing store
 // you need to have an array that can potentially hold all possible hash values.
 console.log('Backing Array Size: ' + hashMap.size);
