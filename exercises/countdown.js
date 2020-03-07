@@ -31,7 +31,4 @@ function getLongestSpellableWord(alphabet) {
     }
 }
 
-const alphabet = "netsagisd"; // << Change this 
-console.log(getLongestSpellableWord(alphabet));
-
 module.exports.getLongestSpellableWord = getLongestSpellableWord;

@@ -2,6 +2,10 @@ const express = require('express');
 
 const app = express();
 
+app.get('/hello', (req, res) => {
+    res.send('UP');
+});
+
 app.get('/getLongest/:alphabet', (req, res) => {
     const countdown = require('./exercises/countdown');
     const alphabet = req.params.alphabet;
